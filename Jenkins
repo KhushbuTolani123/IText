@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Start of pipeline') {
+            steps {
+                echo "Pipeline started"
+            }
+        }
+
         stage('SAST: SonarQube Analyze') {
             steps {
                 script {
