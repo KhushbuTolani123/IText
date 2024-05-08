@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SAST: SonarQube Analyze') {
+            steps {
+                script {
+                    scannerHome = tool 'SonarQubeScanner'
+                    echo "${scannerHome}"
+                    withSonarQubeEnv('SonarQube') {
+                        bat "${scannerHome}/bin/sonar-scanner.bat"
+                    }
+                }
+            }
+        }
+    }
+}
