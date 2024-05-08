@@ -2,21 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Start of pipeline') {
+        stage('Hello') {
             steps {
-                echo "Pipeline started"
-            }
-        }
-
-        stage('SAST: SonarQube Analyze') {
-            steps {
-                script {
-                    scannerHome = tool 'SonarQubeScanner'
-                    echo "${scannerHome}"
-                    withSonarQubeEnv('SonarQube') {
-                        bat "${scannerHome}/bin/sonar-scanner.bat"
-                    }
-                }
+                echo 'Hello World'
             }
         }
     }
